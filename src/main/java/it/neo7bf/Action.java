@@ -151,6 +151,10 @@ public class Action {
 
 		       case 5:
 		    	   return;
+                           
+                       default:
+                           System.out.println("Opzione non prevista");
+                           break;
 		      }
 
 		    }while(!exit);
