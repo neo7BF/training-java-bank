@@ -9,6 +9,8 @@ import java.util.Scanner;
 public class Action {
 	
 	Database d;
+        static final String ASK_CARTA = "Inserisci il codice della carta(...non quello vero!) :";
+        static final String ERROR_CARTA = "numero della carta non valido";
 	
 	public Action(Database d) {
 		this.d = d;
@@ -35,12 +37,12 @@ public class Action {
 		       case 1:
 		    	   clearScreen();
 		    	   //1.inserisci il codice della carta: (non quello vero! :) )
-		    	   System.out.print("Inserisci il codice della carta(...non quello vero!) :");
+		    	   System.out.print(ASK_CARTA);
 		    	   carta = leggiStringa(sd);
 		    	   cc = d.getContoCorrente(carta);
 		    	   //2. se non è valido mostra messaggio "numero della carta non valido (premi un tasto per tornare al menu principale)"
 		    	   if(cc == null) { 
-		    		   System.out.print("numero della carta non valido");
+		    		   System.out.print(ERROR_CARTA);
 		    		   premiUnTastoPerTornareAlMenuPrincipale(sd);
 		    	   }
 		    	   //3. se valido mostra messaggio "Saldo disponibile: X" (premi un tasto per tornare al menu principale)
@@ -54,12 +56,12 @@ public class Action {
 		       case 2:
 		    	   clearScreen();
 		    	   //1.inserisci il codice della carta: (non quello vero! :) )
-		    	   System.out.print("Inserisci il codice della carta(...non quello vero!) :\n");
+		    	   System.out.print(ASK_CARTA);
 		    	   carta = leggiStringa(sd);
 		    	   cc = d.getContoCorrente(carta);
 		    	   //2. se non è valido mostra messaggio "numero della carta non valido (premi un tasto per tornare al menu principale)"
 		    	   if(cc == null) { 
-		    		   System.out.println("numero della carta non valido");
+		    		   System.out.println(ERROR_CARTA);
 		    		   premiUnTastoPerTornareAlMenuPrincipale(sd);
 		    	   }
 		    	   else {
@@ -88,12 +90,12 @@ public class Action {
 		       case 3:
 		    	   clearScreen();
 		    	   //1.inserisci il codice della carta: (non quello vero! :) )
-		    	   System.out.print("Inserisci il codice della carta(...non quello vero!) :\n");
+		    	   System.out.print(ASK_CARTA);
 		    	   carta = leggiStringa(sd);
 		    	   cc = d.getContoCorrente(carta);
 		    	   //2. se non è valido mostra messaggio "numero della carta non valido (premi un tasto per tornare al menu principale)"
 		    	   if(cc == null) { 
-		    		   System.out.println("numero della carta non valido");
+		    		   System.out.println(ERROR_CARTA);
 		    		   premiUnTastoPerTornareAlMenuPrincipale(sd);
 		    	   }
 		    	   else {
@@ -121,12 +123,12 @@ public class Action {
 		       case 4:
 		    	   clearScreen();
 		    	   //1.inserisci il codice della carta: (non quello vero! :) )
-		    	   System.out.print("Inserisci il codice della carta(...non quello vero!) :\n");
+		    	   System.out.print(ASK_CARTA);
 		    	   carta = leggiStringa(sd);
 		    	   cc = d.getContoCorrente(carta);
 		    	   //2. se non è valido mostra messaggio "numero della carta non valido (premi un tasto per tornare al menu principale)"
 		    	   if(cc == null) { 
-		    		   System.out.println("numero della carta non valido");
+		    		   System.out.println(ERROR_CARTA);
 		    		   premiUnTastoPerTornareAlMenuPrincipale(sd);
 		    	   }		    	   
 		    	   //3. recupera i movimenti del conto corrente
