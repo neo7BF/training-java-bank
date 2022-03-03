@@ -38,7 +38,7 @@ public class Action {
 		    	   System.out.print("Inserisci il codice della carta(...non quello vero!) :");
 		    	   carta = leggiStringa(sd);
 		    	   cc = d.getContoCorrente(carta);
-		    	   //2. se non è valido mostra messaggio "numero della carta non valido (premi un tasto per tornare al menu principale)"
+		    	   //2. se non Ã¨ valido mostra messaggio "numero della carta non valido (premi un tasto per tornare al menu principale)"
 		    	   if(cc == null) { 
 		    		   System.out.print("numero della carta non valido");
 		    		   premiUnTastoPerTornareAlMenuPrincipale(sd);
@@ -57,7 +57,7 @@ public class Action {
 		    	   System.out.print("Inserisci il codice della carta(...non quello vero!) :\n");
 		    	   carta = leggiStringa(sd);
 		    	   cc = d.getContoCorrente(carta);
-		    	   //2. se non è valido mostra messaggio "numero della carta non valido (premi un tasto per tornare al menu principale)"
+		    	   //2. se non Ã¨ valido mostra messaggio "numero della carta non valido (premi un tasto per tornare al menu principale)"
 		    	   if(cc == null) { 
 		    		   System.out.println("numero della carta non valido");
 		    		   premiUnTastoPerTornareAlMenuPrincipale(sd);
@@ -66,7 +66,7 @@ public class Action {
 			    	   //3. Inserisci importo da prelevare
 			    	   System.out.print("Inserisci importo da prelevare:\n");
 			    	   importo = new BigDecimal(leggiIntero(sd));
-			    	   //5. Se l'importo da prelevare è maggiore dell'importo totale del conto corrente
+			    	   //5. Se l'importo da prelevare Ã¨ maggiore dell'importo totale del conto corrente
 			    	   if(importo.intValue() > cc.getSaldo().intValue()) {
 			    		   System.out.println("Saldo insufficiente!");
 			    		   premiUnTastoPerTornareAlMenuPrincipale(sd);
@@ -91,7 +91,7 @@ public class Action {
 		    	   System.out.print("Inserisci il codice della carta(...non quello vero!) :\n");
 		    	   carta = leggiStringa(sd);
 		    	   cc = d.getContoCorrente(carta);
-		    	   //2. se non è valido mostra messaggio "numero della carta non valido (premi un tasto per tornare al menu principale)"
+		    	   //2. se non Ã¨ valido mostra messaggio "numero della carta non valido (premi un tasto per tornare al menu principale)"
 		    	   if(cc == null) { 
 		    		   System.out.println("numero della carta non valido");
 		    		   premiUnTastoPerTornareAlMenuPrincipale(sd);
@@ -100,7 +100,7 @@ public class Action {
 			    	   //3. Inserisci importo da prelevare
 			    	   System.out.print("Inserisci importo da versare:\n");
 			    	   importo = new BigDecimal(leggiIntero(sd));
-			    	   //4. Se l'importo da versare è zero
+			    	   //4. Se l'importo da versare Ã¨ zero
 			    	   if(importo.intValue() <=0) {
 			    		   System.out.println("L importo deve essere maggiore di zero");
 			    		   premiUnTastoPerTornareAlMenuPrincipale(sd);
@@ -124,7 +124,7 @@ public class Action {
 		    	   System.out.print("Inserisci il codice della carta(...non quello vero!) :\n");
 		    	   carta = leggiStringa(sd);
 		    	   cc = d.getContoCorrente(carta);
-		    	   //2. se non è valido mostra messaggio "numero della carta non valido (premi un tasto per tornare al menu principale)"
+		    	   //2. se non Ã¨ valido mostra messaggio "numero della carta non valido (premi un tasto per tornare al menu principale)"
 		    	   if(cc == null) { 
 		    		   System.out.println("numero della carta non valido");
 		    		   premiUnTastoPerTornareAlMenuPrincipale(sd);
