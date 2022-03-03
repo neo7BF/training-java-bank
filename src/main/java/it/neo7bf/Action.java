@@ -163,7 +163,7 @@ public class Action {
 	}
 
 	private int leggiIntero(Scanner sd) {
-		return Integer.valueOf(leggiStringa(sd)).intValue();
+		return Integer.parseInt(leggiStringa(sd));
 	}
 
 	private Movimento creaMovimento(BigDecimal importo, String tipoOperazione) {
