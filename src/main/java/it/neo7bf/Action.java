@@ -39,15 +39,15 @@ public class Action {
 		       case 1:
 		    	   clearScreen();
 
-		    	   //1.inserisci il codice della carta: (non quello vero! :) )
+                           //1.inserisci il codice della carta: (non quello vero! :) )
 		    	   System.out.print(ASK_CARTA);
 		    	   carta = leggiStringa(sd);
 		    	   Optional.ofNullable(d.getContoCorrente(carta) )
                                    .ifPresentOrElse(conto-> {                                       
-		    	   //3. se valido mostra messaggio "Saldo disponibile: X" (premi un tasto per tornare al menu principale)
+                                        //3. se valido mostra messaggio "Saldo disponibile: X" (premi un tasto per tornare al menu principale)
                                         BigDecimal saldoDisponbile = conto.getSaldo();
-		    		   System.out.println("Saldo disponibile: "+saldoDisponbile);
-		    		   premiUnTastoPerTornareAlMenuPrincipale(sd);
+                                        System.out.println("Saldo disponibile: "+saldoDisponbile);
+                                        premiUnTastoPerTornareAlMenuPrincipale(sd);
                                     }, () -> {
                                         //2. se non è valido mostra messaggio "numero della carta non valido (premi un tasto per tornare al menu principale)"
                                         System.out.print(ERROR_CARTA);
@@ -139,12 +139,12 @@ public class Action {
 		    	   //4. Se esistono
 		    	   if(movimenti.size() > 0) {
 			    	   //5. Visualizza movimenti		    		   
-			    	   System.out.println("Lista Movimenti: \n\n");
+			    	   System.out.println("Lista Movimenti: \n");
 			    	   System.out.println(String.format ("|%1$-10s|%2$-19s|%3$-15s|","OPERAZIONE","DATA","IMPORTO"));
 			    	   System.out.println(String.format ("|%1$-10s|%2$-19s|%3$-15s|","----------","-------------------","---------------"));
-			    	   for(Movimento m : movimenti) {
-			    		   System.out.println(m.toString());
-			    	   }
+                                   
+                                   movimenti.forEach( movimento ->  System.out.println(movimento ) );
+                                   
 		    	   }
 		    	   else {
 			    	   System.out.println("nessun movimento");
