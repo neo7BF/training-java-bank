@@ -46,11 +46,9 @@ public class Action {
                                 //3. se valido mostra messaggio "Saldo disponibile: X" (premi un tasto per tornare al menu principale)
                                 BigDecimal saldoDisponbile = conto.getSaldo();
                                 System.out.println("Saldo disponibile: " + saldoDisponbile);
-                                premiUnTastoPerTornareAlMenuPrincipale(sd);
                             }, () -> {
                                 //2. se non è valido mostra messaggio "numero della carta non valido (premi un tasto per tornare al menu principale)"
                                 System.out.print(ERROR_CARTA);
-                                premiUnTastoPerTornareAlMenuPrincipale(sd);
                             });
 
                     break;
@@ -64,7 +62,6 @@ public class Action {
                     //2. se non è valido mostra messaggio "numero della carta non valido (premi un tasto per tornare al menu principale)"
                     if (cc == null) {
                         System.out.println(ERROR_CARTA);
-                        premiUnTastoPerTornareAlMenuPrincipale(sd);
                     } else {
                         //3. Inserisci importo da prelevare
                         System.out.print("Inserisci importo da prelevare:\n");
@@ -72,7 +69,6 @@ public class Action {
                         //5. Se l'importo da prelevare è maggiore dell'importo totale del conto corrente
                         if (importo.intValue() > cc.getSaldo().intValue()) {
                             System.out.println("Saldo insufficiente!");
-                            premiUnTastoPerTornareAlMenuPrincipale(sd);
                         } //4. altrimenti
                         //5.	dal conto togli l'importo richiesto 
                         else {
@@ -82,7 +78,6 @@ public class Action {
                             cc.addMovimento(creaMovimento(importo, "PRELIEVO"));
                             //6. mostra messaggio "importo prelevato: X nuovo saldo: Y (premi un tasto per tornare al menu principale)"
                             System.out.println("Prelievo effettuato ! Nuovo saldo disponibile: " + nuovoSaldo);
-                            premiUnTastoPerTornareAlMenuPrincipale(sd);
                         }
                     }
                     break;
@@ -96,7 +91,6 @@ public class Action {
                     //2. se non è valido mostra messaggio "numero della carta non valido (premi un tasto per tornare al menu principale)"
                     if (cc == null) {
                         System.out.println(ERROR_CARTA);
-                        premiUnTastoPerTornareAlMenuPrincipale(sd);
                     } else {
                         //3. Inserisci importo da prelevare
                         System.out.print("Inserisci importo da versare:\n");
@@ -104,7 +98,6 @@ public class Action {
                         //4. Se l'importo da versare è zero
                         if (importo.intValue() <= 0) {
                             System.out.println("L importo deve essere maggiore di zero");
-                            premiUnTastoPerTornareAlMenuPrincipale(sd);
                         } //5. altrimenti
                         //6.	dal conto aggiungi l'importo richiesto
                         else {
@@ -113,7 +106,6 @@ public class Action {
                             cc.setSaldo(nuovoSaldo);
                             cc.addMovimento(creaMovimento(importo, "ACCREDITO"));
                             System.out.println("Accredito effettuato! Nuovo saldo disponibile: " + nuovoSaldo);
-                            premiUnTastoPerTornareAlMenuPrincipale(sd);
                         }
                     }
                     break;
@@ -127,7 +119,6 @@ public class Action {
                     //2. se non è valido mostra messaggio "numero della carta non valido (premi un tasto per tornare al menu principale)"
                     if (cc == null) {
                         System.out.println(ERROR_CARTA);
-                        premiUnTastoPerTornareAlMenuPrincipale(sd);
                     } else {
                         //3. recupera i movimenti del conto corrente
                         List<Movimento> movimenti = cc.getMovimenti();
@@ -144,7 +135,6 @@ public class Action {
                             System.out.println("nessun movimento");
                         }
                     }
-                    premiUnTastoPerTornareAlMenuPrincipale(sd);
                     break;
 
                 case 5:
@@ -154,6 +144,7 @@ public class Action {
                     System.out.println("Opzione non prevista");
                     break;
             }
+            premiUnTastoPerTornareAlMenuPrincipale(sd);
 
         } while (!exit);
 
