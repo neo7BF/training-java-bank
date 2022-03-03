@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ContoCorrente {
-	private List<Movimento> movimenti = new ArrayList<Movimento>();
+	private List<Movimento> movimenti = new ArrayList<>();
 	private BigDecimal saldo;
 	
 	public ContoCorrente(BigDecimal saldoIniziale) {

@@ -7,7 +7,7 @@ import java.util.Map;
 
 public class Database {
 	
-	private Map<String,ContoCorrente> conti = new HashMap<String,ContoCorrente>();
+	private Map<String,ContoCorrente> conti = new HashMap<>();
 
 	public void aggiungiContoCorrente(String carta, ContoCorrente conto) {
 		conti.put(carta, conto);
