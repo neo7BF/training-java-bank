@@ -4,11 +4,12 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 import java.util.Scanner;
 //https://stackoverflow.com/questions/2979383/how-to-clear-the-console
 public class Action {
 	
-        static final String ASK_CARTA = "Inserisci il codice della carta(...non quello vero!) :";
+        static final String ASK_CARTA = "Inserisci il codice della carta(...non quello vero!)\n";
         static final String ERROR_CARTA = "numero della carta non valido";
 	
 	private final Database d;
@@ -37,21 +38,22 @@ public class Action {
 		     {
 		       case 1:
 		    	   clearScreen();
+
 		    	   //1.inserisci il codice della carta: (non quello vero! :) )
 		    	   System.out.print(ASK_CARTA);
 		    	   carta = leggiStringa(sd);
-		    	   cc = d.getContoCorrente(carta);
-		    	   //2. se non è valido mostra messaggio "numero della carta non valido (premi un tasto per tornare al menu principale)"
-		    	   if(cc == null) { 
-		    		   System.out.print(ERROR_CARTA);
-		    		   premiUnTastoPerTornareAlMenuPrincipale(sd);
-		    	   }
+		    	   Optional.ofNullable(d.getContoCorrente(carta) )
+                                   .ifPresentOrElse(conto-> {                                       
 		    	   //3. se valido mostra messaggio "Saldo disponibile: X" (premi un tasto per tornare al menu principale)
-		    	   else {
-		    		   BigDecimal saldoDisponbile = cc.getSaldo();
+                                        BigDecimal saldoDisponbile = conto.getSaldo();
 		    		   System.out.println("Saldo disponibile: "+saldoDisponbile);
 		    		   premiUnTastoPerTornareAlMenuPrincipale(sd);
-		    	   } 
+                                    }, () -> {
+                                        //2. se non è valido mostra messaggio "numero della carta non valido (premi un tasto per tornare al menu principale)"
+                                        System.out.print(ERROR_CARTA);
+                                        premiUnTastoPerTornareAlMenuPrincipale(sd);
+                                    });
+                           
 		    	   break;
 
 		       case 2:
