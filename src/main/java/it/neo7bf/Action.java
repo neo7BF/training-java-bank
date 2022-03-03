@@ -133,21 +133,23 @@ public class Action {
 		    	   if(cc == null) { 
 		    		   System.out.println(ERROR_CARTA);
 		    		   premiUnTastoPerTornareAlMenuPrincipale(sd);
-		    	   }		    	   
-		    	   //3. recupera i movimenti del conto corrente
-		    	   List<Movimento> movimenti = cc.getMovimenti();
-		    	   //4. Se esistono
-		    	   if(movimenti.size() > 0) {
-			    	   //5. Visualizza movimenti		    		   
-			    	   System.out.println("Lista Movimenti: \n");
-			    	   System.out.println(String.format ("|%1$-10s|%2$-19s|%3$-15s|","OPERAZIONE","DATA","IMPORTO"));
-			    	   System.out.println(String.format ("|%1$-10s|%2$-19s|%3$-15s|","----------","-------------------","---------------"));
-                                   
-                                   movimenti.forEach( movimento ->  System.out.println(movimento ) );
-                                   
 		    	   }
 		    	   else {
-			    	   System.out.println("nessun movimento");
+    			    	   //3. recupera i movimenti del conto corrente
+			    	   List<Movimento> movimenti = cc.getMovimenti();
+			    	   //4. Se esistono
+			    	   if(movimenti.size() > 0) {
+				    	   //5. Visualizza movimenti		    		   
+				    	   System.out.println("Lista Movimenti: \n");
+				    	   System.out.println(String.format ("|%1$-10s|%2$-19s|%3$-15s|","OPERAZIONE","DATA","IMPORTO"));
+				    	   System.out.println(String.format ("|%1$-10s|%2$-19s|%3$-15s|","----------","-------------------","---------------"));
+                                   
+        	                           movimenti.forEach( movimento ->  System.out.println(movimento ) );
+                                   
+			    	   }
+			    	   else {
+				    	   System.out.println("nessun movimento");
+			    	   }
 		    	   }
 		    	   premiUnTastoPerTornareAlMenuPrincipale(sd);		    	   
 		       	   break;
