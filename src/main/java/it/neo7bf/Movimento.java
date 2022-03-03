@@ -4,32 +4,14 @@ import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import lombok.Data;
 
+@Data
 public class Movimento {
 	
 	private LocalDateTime data;
 	private String tipoOperazione;
 	private BigDecimal importo;
-	
-	public LocalDateTime getData() {
-		return data;
-	}
-	public void setData(LocalDateTime data) {
-		this.data = data;
-	}
-	public BigDecimal getImporto() {
-		return importo;
-	}
-	public void setImporto(BigDecimal importo) {
-		this.importo = importo;
-	}
-
-	public String getTipoOperazione() {
-		return tipoOperazione;
-	}
-	public void setTipoOperazione(String tipoOperazione) {
-		this.tipoOperazione = tipoOperazione;
-	}
 	
 	@Override
 	public String toString() {
