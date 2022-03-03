@@ -8,9 +8,10 @@ import java.util.Scanner;
 //https://stackoverflow.com/questions/2979383/how-to-clear-the-console
 public class Action {
 	
-	Database d;
         static final String ASK_CARTA = "Inserisci il codice della carta(...non quello vero!) :";
         static final String ERROR_CARTA = "numero della carta non valido";
+	
+	private final Database d;
 	
 	public Action(Database d) {
 		this.d = d;
