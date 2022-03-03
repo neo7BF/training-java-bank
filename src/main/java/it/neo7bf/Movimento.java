@@ -8,15 +8,15 @@ import lombok.Data;
 
 @Data
 public class Movimento {
-	
-	private LocalDateTime data;
-	private String tipoOperazione;
-	private BigDecimal importo;
-	
-	@Override
-	public String toString() {
-		String importoStr = new DecimalFormat("#,###.00").format(importo.doubleValue());
-		String dataStr = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss").format(data);
-		return String.format ("|%1$-10s|%2$-19s|%3$-15s|",tipoOperazione,dataStr,importoStr);
-	}
+
+    private LocalDateTime data;
+    private String tipoOperazione;
+    private BigDecimal importo;
+
+    @Override
+    public String toString() {
+        String importoStr = new DecimalFormat("#,###.00").format(importo.doubleValue());
+        String dataStr = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss").format(data);
+        return String.format("|%1$-10s|%2$-19s|%3$-15s|", tipoOperazione, dataStr, importoStr);
+    }
 }
